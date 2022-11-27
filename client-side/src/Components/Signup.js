@@ -1,8 +1,24 @@
 import React from 'react'
-import '../App.css'
+import { useState } from 'react'
 import { Button, Label, TextInput } from 'flowbite-react'
 
 const Signup = () => {
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    work: '',
+    password: '',
+    cpassword: '',
+  })
+
+  let name, value
+  const handleInput = (e) => {
+    console.log(e)
+    name = e.target.name
+    value = e.target.value
+    setUser({ ...user, [name]: value })
+  }
   return (
     <>
       <div className="px-48">
@@ -14,9 +30,12 @@ const Signup = () => {
               <Label htmlFor="name1" />
             </div>
             <TextInput
-              id="name1"
+              id="name"
               type="text"
               placeholder="Your Name"
+              name="name"
+              value={user.name}
+              onChange={handleInput}
               required={true}
             />
           </div>
@@ -26,21 +45,27 @@ const Signup = () => {
               <Label htmlFor="email1" />
             </div>
             <TextInput
-              id="email1"
+              id="email"
               type="email"
               placeholder="Your Email "
+              name="email"
+              value={user.email}
+              onChange={handleInput}
               required={true}
             />
           </div>
 
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="phone1" />
+              <Label htmlFor="phone" />
             </div>
             <TextInput
               id="phone1"
               type="text"
               placeholder="Your Phone"
+              name="phone"
+              value={user.phone}
+              onChange={handleInput}
               required={true}
             />
           </div>
@@ -50,9 +75,12 @@ const Signup = () => {
               <Label htmlFor="profession1" />
             </div>
             <TextInput
-              id="profession1"
+              id="profession"
               type="text"
               placeholder="Your Profession"
+              name="work"
+              value={user.work}
+              onChange={handleInput}
               required={true}
             />
           </div>
@@ -62,9 +90,11 @@ const Signup = () => {
               <Label htmlFor="password1" />
             </div>
             <TextInput
-              id="password1"
               type="password"
               placeholder="Your Password"
+              name="password"
+              value={user.password}
+              onChange={handleInput}
               required={true}
             />
           </div>
@@ -74,9 +104,11 @@ const Signup = () => {
               <Label htmlFor="password1" />
             </div>
             <TextInput
-              id="password1"
               type="password"
               placeholder="Confirm Your Password"
+              name="cpassword"
+              value={user.cpassword}
+              onChange={handleInput}
               required={true}
             />
           </div>

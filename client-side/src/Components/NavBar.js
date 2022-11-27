@@ -1,7 +1,7 @@
 import React from 'react'
-import '../App.css'
-
 import { Navbar } from 'flowbite-react'
+import { NavLink } from 'react-router-dom'
+
 const NavBar = () => {
   return (
     <>
@@ -19,21 +19,21 @@ const NavBar = () => {
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse>
-            <Navbar.Link className="text-lg" href="/navbars" active={true}>
+            <NavLink className="text-lg" to="/">
               Home
-            </Navbar.Link>
-            <Navbar.Link className="text-lg" href="/about">
+            </NavLink>
+            <NavLink className="text-lg" to="/about">
               About
-            </Navbar.Link>
-            <Navbar.Link className="text-lg" href="/contact">
+            </NavLink>
+            <NavLink className="text-lg" to="/contact">
               Contact
-            </Navbar.Link>
-            <Navbar.Link className="text-lg" href="/login">
+            </NavLink>
+            <NavLink className="text-lg" to="/login">
               Login
-            </Navbar.Link>
-            <Navbar.Link className="text-lg" href="/signup">
+            </NavLink>
+            <NavLink className="text-lg" to="/signup">
               Register
-            </Navbar.Link>
+            </NavLink>
           </Navbar.Collapse>
         </Navbar>
       </div>

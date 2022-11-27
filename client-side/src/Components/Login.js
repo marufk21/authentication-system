@@ -1,5 +1,4 @@
 import React from 'react'
-import '../App.css'
 import { Button, Label, TextInput } from 'flowbite-react'
 
 const Login = () => {
