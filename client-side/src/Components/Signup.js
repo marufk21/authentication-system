@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Button, Label, TextInput } from 'flowbite-react'
 
 const Signup = () => {
+  // stroring data to frontend
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -19,6 +20,10 @@ const Signup = () => {
     value = e.target.value
     setUser({ ...user, [name]: value })
   }
+
+  
+
+
   return (
     <>
       <div className="px-48">
@@ -113,7 +118,9 @@ const Signup = () => {
             />
           </div>
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit" >
+            Register
+          </Button>
         </form>
       </div>
     </>
