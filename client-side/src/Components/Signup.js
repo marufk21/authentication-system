@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import { Button, Label, TextInput } from 'flowbite-react'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
-  // stroring data to frontend
+  const history = useNavigate()
+
+  // storing data to frontend
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -15,21 +18,51 @@ const Signup = () => {
 
   let name, value
   const handleInput = (e) => {
-    console.log(e)
     name = e.target.name
     value = e.target.value
     setUser({ ...user, [name]: value })
   }
 
-  
+  // Send data to backend using fetch api
+  const PostData = async (e) => {
+    e.preventDefault()
 
+    const { name, email, phone, work, password, cpassword } = user
+
+    const res = await fetch('/register', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        work,
+        password,
+        cpassword,
+      }),
+    })
+    const data = await res.json()
+
+    if (data.status === 422 || !data) {
+      window.alert('Invalid Registrartion')
+      console.log('Invalid Registrartion')
+    } else {
+      window.alert('Registration Succesfull')
+      console.log('Registration Sucessfull')
+
+      history('/login')
+    }
+  }
 
   return (
     <>
       <div className="px-48">
         <h1 className="py-4 text-3xl font-bold from-stone-800 ">Sign Up</h1>
 
-        <form className="flex flex-col gap-4">
+        <form method="POST" className="flex flex-col gap-4">
           <div>
             <div className="mb-2 block">
               <Label htmlFor="name1" />
@@ -118,7 +151,7 @@ const Signup = () => {
             />
           </div>
 
-          <Button type="submit" >
+          <Button type="submit" onClick={PostData}>
             Register
           </Button>
         </form>

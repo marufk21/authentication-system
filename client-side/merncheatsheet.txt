@@ -86,11 +86,16 @@ React router dom : v6
 
 *Store Data in FrontEnd using React Hooks
 
+*Store Data to Frontend to Backend & Solve React Cors Error
+
 Send Data to backend using Fetch Api
 Button : Onclick
 
 
-*Store Data to Frontend to Backend & Solve React Cors Error
+package.json: "proxy": "http://localhost:9000/"
+
+
+
 
 *Store Data to all components Frontend to Backend.
 
@@ -99,12 +104,4 @@ How to run and share Mern Stack App.
 *Deploy MernStack App In Heroku.
 
 
-// Send data to backend using Fetch Api
-  const PostData = async (e) => {
-    e.preventDefault()
 
-    const { name, email, phone, work, password, cpassword } = user
-  }
-
-  onClick={PostData}
-  form method="POST"

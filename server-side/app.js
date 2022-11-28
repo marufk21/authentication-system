@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8000
+const port = 9000
 const bodyParser = require('body-parser')
 require('./db/connect')
 const User = require('./models/userSchema')
