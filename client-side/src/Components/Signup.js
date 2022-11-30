@@ -47,11 +47,11 @@ const Signup = () => {
     const data = await res.json()
 
     if (data.status === 422 || !data) {
-      window.alert('Invalid Registrartion')
-      console.log('Invalid Registrartion')
+      window.alert('Invalid Registration')
+      console.log('Invalid Registration')
     } else {
-      window.alert('Registration Succesfull')
-      console.log('Registration Sucessfull')
+      window.alert('Registration Successful')
+      console.log('Registration Successful')
 
       history('/login')
     }
@@ -64,9 +64,8 @@ const Signup = () => {
 
         <form method="POST" className="flex flex-col gap-4">
           <div>
-            <div className="mb-2 block">
-              <Label htmlFor="name1" />
-            </div>
+            <div className="mb-2 block"></div>
+            <Label htmlFor="name1" />
             <TextInput
               id="name"
               type="text"
@@ -79,7 +78,7 @@ const Signup = () => {
           </div>
 
           <div>
-            <div className="mb-2 block">
+            <div className="mb-4 block">
               <Label htmlFor="email1" />
             </div>
             <TextInput
